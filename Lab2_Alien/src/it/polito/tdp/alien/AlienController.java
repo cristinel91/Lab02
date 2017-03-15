@@ -42,7 +42,7 @@ public class AlienController {
     	
     	if(testo.contains("1")||testo.contains("2")||testo.contains("3")||
     	   testo.contains("4")||testo.contains("5")||testo.contains("6")||
-    	   testo.contains("7")||testo.contains("8")||testo.contains("9")){
+    	   testo.contains("7")||testo.contains("8")||testo.contains("9")||testo.contains("0")){
     		txtArea.appendText("Non inserire numeri nella stringa\n");
     	} 
     	else{
