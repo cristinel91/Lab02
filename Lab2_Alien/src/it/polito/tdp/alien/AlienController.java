@@ -9,6 +9,8 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 
 public class AlienController {
+	
+	private AlienDictionary dizionario=new AlienDictionary();
 
     @FXML
     private ResourceBundle resources;
@@ -30,12 +32,22 @@ public class AlienController {
 
     @FXML
     void doReset(ActionEvent event) {
-
+    	txtArea.clear();
     }
 
     @FXML
     void doTranslate(ActionEvent event) {
-
+    	
+    	String testo=txtInsertText.getText();
+    	String testoSplitato[]=testo.split(" ");
+    	if(testoSplitato.length==2){
+    		dizionario.addWord(testoSplitato[0],testoSplitato[1]);
+    		// implementare per escludere i numeri
+    		txtArea.appendText("Aggiunta parola "+"'"+testoSplitato[0]+"'"+" al dizionario\n");
+    	}
+    	else if(testoSplitato.length==1){
+    		txtArea.appendText("Traduzione: "+dizionario.translateWord(testoSplitato[0])+"\n");
+    	}
     }
 
     @FXML
