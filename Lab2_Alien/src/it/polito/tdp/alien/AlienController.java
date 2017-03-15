@@ -33,20 +33,27 @@ public class AlienController {
     @FXML
     void doReset(ActionEvent event) {
     	txtArea.clear();
+    	txtInsertText.clear();
     }
 
     @FXML
     void doTranslate(ActionEvent event) {
-    	
     	String testo=txtInsertText.getText();
-    	String testoSplitato[]=testo.split(" ");
-    	if(testoSplitato.length==2){
-    		dizionario.addWord(testoSplitato[0],testoSplitato[1]);
-    		// implementare per escludere i numeri
-    		txtArea.appendText("Aggiunta parola "+"'"+testoSplitato[0]+"'"+" al dizionario\n");
-    	}
-    	else if(testoSplitato.length==1){
-    		txtArea.appendText("Traduzione: "+dizionario.translateWord(testoSplitato[0])+"\n");
+    	
+    	if(testo.contains("1")||testo.contains("2")||testo.contains("3")||
+    	   testo.contains("4")||testo.contains("5")||testo.contains("6")||
+    	   testo.contains("7")||testo.contains("8")||testo.contains("9")){
+    		txtArea.appendText("Non inserire numeri nella stringa\n");
+    	} 
+    	else{
+    		String testoSplitato[]=testo.split(" ");
+    		if(testoSplitato.length==2){
+    			dizionario.addWord(testoSplitato[0],testoSplitato[1]);
+    			txtArea.appendText("Aggiunta parola "+"'"+testoSplitato[0]+"'"+" al dizionario\n");
+    		}
+    		else if(testoSplitato.length==1){ // GESTIRE IL ?
+    			txtArea.appendText("Traduzione: "+dizionario.translateWord(testoSplitato[0])+"\n");
+    		}
     	}
     }
 
@@ -56,6 +63,5 @@ public class AlienController {
         assert btnTranslate != null : "fx:id=\"btnTranslate\" was not injected: check your FXML file 'Alien.fxml'.";
         assert txtArea != null : "fx:id=\"txtArea\" was not injected: check your FXML file 'Alien.fxml'.";
         assert btnReset != null : "fx:id=\"btnReset\" was not injected: check your FXML file 'Alien.fxml'.";
-
-    }
+	}
 }
