@@ -16,6 +16,6 @@ public class AlienDictionary {
 		alienWord=alienWord.toLowerCase();
 		if(dizionario.containsKey(alienWord))
 			return dizionario.get(alienWord).getTranslate();
-		return null;
+		return "Non è presente nessuna traduzione per la parola "+"'"+alienWord+"'";
 	}
 }
