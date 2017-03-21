@@ -45,11 +45,11 @@ public class AlienController {
     	else{
     		String testoSplitato[]=testo.split(" ");
     		if(testoSplitato.length==2){
-    			dizionario.addWord(testoSplitato[0],testoSplitato[1]);
+    			dizionario.addWordList(testoSplitato[0],testoSplitato[1]);
     			txtArea.appendText("Aggiunta parola "+"'"+testoSplitato[0]+"'"+" al dizionario\n");
     		}
     		else if(testoSplitato.length==1){ // GESTIRE IL ?
-    			txtArea.appendText("Traduzione: "+dizionario.translateWord(testoSplitato[0])+"\n");
+    			txtArea.appendText("Traduzione: "+dizionario.translateList(testoSplitato[0])+"\n");
     		}
     	}
     }
